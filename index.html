@@ -12,25 +12,26 @@
       color: #333;
     }
     header {
-      background: url('banner.jpg') center/cover no-repeat;
+      background: url('banner1.jpg') center/cover no-repeat;
       height: 100vh;
-      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       color: white;
       text-shadow: 1px 1px 4px #000;
+      text-align: center;
+      position: relative;
     }
-    header img {
-      width: 120px;
+    header .logo {
       position: absolute;
       top: 20px;
       left: 20px;
+      width: 100px;
     }
     header h1 {
       font-size: 3rem;
+      margin-top: 60px;
       margin-bottom: 10px;
     }
     nav {
@@ -56,42 +57,46 @@
       max-width: 100%;
       margin: 20px 0;
     }
-    form input, form textarea {
+    footer {
+      background: #003300;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    footer .footer-logo {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 120px;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    form button {
-      padding: 10px 20px;
-      background: #005f3c;
+    button {
+      background-color: #005f3c;
       color: white;
+      padding: 10px 20px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
-    form button:hover {
+    button:hover {
       background-color: #00432d;
-    }
-    footer {
-      background: #003300;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
-    footer img {
-      width: 120px;
-      margin-left: 20px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="header_logo.jpg" alt="Delta-Nine Icon Logo" />
+  <img src="logo.jpg" class="logo" alt="Delta-Nine Logo" />
   <h1>Delta-Nine Pharmaceuticals</h1>
   <p>EU-GMP Compliant Medical Cannabis Processing</p>
 </header>
@@ -106,6 +111,7 @@
 <section id="about">
   <h2>About Us</h2>
   <p>We are a South African post-harvest processing facility for EU-GMP compliant medical cannabis. With a focus on quality and regulatory alignment, our team supports both local cultivators and global distributors.</p>
+  <img src="banner2.jpg" alt="Cannabis Image" />
 </section>
 
 <section id="services">
@@ -121,15 +127,18 @@
 
 <section id="compliance">
   <h2>Compliance</h2>
-  <p>Aligned with SAHPRA and EU-GMP guidelines, our facility ensures traceability, stability, and product safety from farm to export.</p>
+  <p>Aligned with SAHPRA and EU-GMP standards, our facility ensures traceability, stability, and product safety from farm to export.</p>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
   <form action="https://formspree.io/f/xqaqyeok" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <label for="name">Name</label>
+    <input type="text" name="name" required>
+    <label for="email">Email</label>
+    <input type="email" name="email" required>
+    <label for="message">Message</label>
+    <textarea name="message" rows="5" required></textarea>
     <button type="submit">Send Message</button>
   </form>
   <p>Email: <a href="mailto:info@deltaninepharma.co.za">info@deltaninepharma.co.za</a></p>
@@ -137,8 +146,8 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.</p>
-  <img src="footer_logo.jpg" alt="Footer Logo" />
+  &copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.
+  <img src="deltanine_full_logo.jpg" class="footer-logo" alt="Full Delta-Nine Logo"/>
 </footer>
 
 </body>
