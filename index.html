@@ -5,109 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Delta-Nine Pharmaceuticals</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
       color: #333;
     }
     header {
+      background: url('banner1.jpg') center/cover no-repeat;
       height: 100vh;
-      background: url('delta9_logo.jpg') center/contain no-repeat;
-      background-color: #e8f5e9;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 4px #000;
       text-align: center;
-      padding: 2rem;
+    }
+    header img {
+      width: 200px;
+      margin-bottom: 20px;
     }
     header h1 {
       font-size: 3rem;
-      color: #005f3c;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
-    header p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
+    nav {
+      background: #003300;
+      padding: 1rem;
+      text-align: center;
     }
-    header a {
-      background-color: #005f3c;
+    nav a {
       color: white;
+      margin: 0 20px;
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
       font-weight: bold;
-      transition: background-color 0.3s;
     }
-    header a:hover {
-      background-color: #00432d;
+    nav a:hover {
+      text-decoration: underline;
     }
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
     }
-    h2 {
-      color: #005f3c;
-      margin-bottom: 20px;
+    section img {
+      max-width: 100%;
+      margin: 20px 0;
     }
     footer {
-      background-color: #333;
+      background: #003300;
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
 
 <header>
+  <img src="logo.jpg" alt="Delta-Nine Logo" />
   <h1>Delta-Nine Pharmaceuticals</h1>
-  <p>EU-GMP Certified Post-Harvest Cannabis Processing in South Africa, serving the international medical cannabis market.</p>
-  <a href="#contact">Contact Us</a>
+  <p>EU-GMP Compliant Medical Cannabis Processing</p>
 </header>
 
-<div class="section" id="about">
-  <h2>About Us</h2>
-  <p>We are a South African company specializing in EU-GMP compliant post-harvest processing of medical cannabis. Our operations are designed for quality, compliance, and global export readiness.</p>
-</div>
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#compliance">Compliance</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<div class="section" id="services">
+<section id="about">
+  <h2>About Us</h2>
+  <p>We are a South African post-harvest processing facility for EU-GMP compliant medical cannabis. With a focus on quality and regulatory alignment, our team supports both local cultivators and global distributors.</p>
+  <img src="banner2.jpg" alt="Cannabis Image" />
+</section>
+
+<section id="services">
   <h2>Our Services</h2>
   <ul>
-    <li>Trimming and Sorting</li>
-    <li>Drying and Curing</li>
+    <li>Trimming & Sorting</li>
+    <li>Drying & Curing</li>
     <li>Gamma Irradiation</li>
-    <li>Packaging for Export</li>
-    <li>Extraction from Trim (coming soon)</li>
+    <li>Packaging & Labeling</li>
+    <li>Cannabis Extraction (2025)</li>
   </ul>
-</div>
+</section>
 
-<div class="section" id="compliance">
+<section id="compliance">
   <h2>Compliance</h2>
-  <p>Aligned with SAHPRA and EU-GMP standards, we work with global experts to ensure our products and processes meet the highest regulatory requirements.</p>
-</div>
+  <p>Aligned with SAHPRA and EU-GMP guidelines, our facility ensures traceability, stability, and product safety from farm to export.</p>
+</section>
 
-<div class="section" id="contact">
+<section id="contact">
   <h2>Contact Us</h2>
-  <form action="https://formspree.io/f/xqaqyeok" method="POST">
-    <label for="name">Name</label><br/>
-    <input type="text" name="name" required><br/><br/>
-    <label for="email">Email</label><br/>
-    <input type="email" name="email" required><br/><br/>
-    <label for="message">Message</label><br/>
-    <textarea name="message" rows="5" required></textarea><br/><br/>
-    <button type="submit">Send Message</button>
-  </form>
   <p>Email: <a href="mailto:info@deltaninepharma.co.za">info@deltaninepharma.co.za</a></p>
   <p>Location: Western Cape, South Africa</p>
-</div>
+</section>
 
 <footer>
   &copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.
