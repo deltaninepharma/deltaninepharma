@@ -12,19 +12,22 @@
       color: #333;
     }
     header {
-      background: url('banner1.jpg') center/cover no-repeat;
+      background: url('banner.jpg') center/cover no-repeat;
       height: 100vh;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
       color: white;
       text-shadow: 1px 1px 4px #000;
-      text-align: center;
     }
     header img {
-      width: 200px;
-      margin-bottom: 20px;
+      width: 120px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
     }
     header h1 {
       font-size: 3rem;
@@ -53,18 +56,42 @@
       max-width: 100%;
       margin: 20px 0;
     }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      padding: 10px 20px;
+      background: #005f3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #00432d;
+    }
     footer {
       background: #003300;
       color: white;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px;
+    }
+    footer img {
+      width: 120px;
+      margin-left: 20px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.jpg" alt="Delta-Nine Logo" />
+  <img src="header_logo.jpg" alt="Delta-Nine Icon Logo" />
   <h1>Delta-Nine Pharmaceuticals</h1>
   <p>EU-GMP Compliant Medical Cannabis Processing</p>
 </header>
@@ -79,7 +106,6 @@
 <section id="about">
   <h2>About Us</h2>
   <p>We are a South African post-harvest processing facility for EU-GMP compliant medical cannabis. With a focus on quality and regulatory alignment, our team supports both local cultivators and global distributors.</p>
-  <img src="banner2.jpg" alt="Cannabis Image" />
 </section>
 
 <section id="services">
@@ -100,12 +126,19 @@
 
 <section id="contact">
   <h2>Contact Us</h2>
+  <form action="https://formspree.io/f/xqaqyeok" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
   <p>Email: <a href="mailto:info@deltaninepharma.co.za">info@deltaninepharma.co.za</a></p>
   <p>Location: Western Cape, South Africa</p>
 </section>
 
 <footer>
-  &copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.
+  <p>&copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.</p>
+  <img src="footer_logo.jpg" alt="Footer Logo" />
 </footer>
 
 </body>
