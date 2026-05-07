@@ -1,56 +1,935 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta-Nine Pharmaceuticals</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; color: #333; }
-        header { background: #006400; color: white; padding: 1em 2em; text-align: center; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; }
-        section { padding: 2em; max-width: 960px; margin: auto; }
-        footer { background: #333; color: white; text-align: center; padding: 1em 2em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delta-Nine Pharmaceuticals</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --gold-dark: #8B6914;
+    --ink: #0D0D0D;
+    --ink-soft: #1A1A1A;
+    --cream: #F7F4EE;
+    --cream-dark: #EDE8DF;
+    --muted: #6B6660;
+    --border: rgba(201,168,76,0.25);
+    --border-strong: rgba(201,168,76,0.5);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .nav-logo-mark {
+    width: 32px; height: 32px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,244,238,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.03;
+    background-image:
+      linear-gradient(var(--gold) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content { position: relative; max-width: 720px; }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow-line {
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 86px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(247,244,238,0.65);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2.25rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.9rem 2.25rem;
+    border: 1px solid var(--border-strong);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--ink-soft);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    padding: 2rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-item {
+    display: flex; flex-direction: column;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--gold);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,244,238,0.4);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-header {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--cream);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .section-rule {
+    width: 60px; height: 1px;
+    background: var(--border-strong);
+    margin-top: 0.5rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--ink-soft); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: rgba(247,244,238,0.75);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .about-features {
+    display: flex; flex-direction: column; gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .feature-row {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 0.5px solid var(--border);
+    background: rgba(201,168,76,0.03);
+  }
+
+  .feature-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .feature-row span {
+    font-size: 14px;
+    color: rgba(247,244,238,0.7);
+    letter-spacing: 0.02em;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-frame {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+
+  .about-img-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8) brightness(0.85);
+  }
+
+  .about-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,13,13,0.6) 0%, transparent 50%);
+  }
+
+  .about-img-caption {
+    position: absolute;
+    bottom: 1.5rem; left: 1.5rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-left: 2px solid var(--gold);
+    padding-left: 0.75rem;
+  }
+
+  .corner-accent {
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .corner-accent.tl { top: -12px; left: -12px; border-width: 1px 0 0 1px; }
+  .corner-accent.br { bottom: -12px; right: -12px; border-width: 0 1px 1px 0; }
+
+  /* SERVICES */
+  .services { background: var(--ink); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--ink);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover { background: var(--ink-soft); }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.08);
+    line-height: 1;
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+  }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .service-card p {
+    font-size: 13.5px;
+    color: rgba(247,244,238,0.55);
+    line-height: 1.75;
+  }
+
+  /* COMPLIANCE */
+  .compliance {
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .compliance .section-title { color: var(--ink); }
+  .compliance .section-title em { color: var(--gold-dark); }
+  .compliance .section-rule { background: var(--gold-dark); opacity: 0.4; }
+
+  .compliance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .compliance-text p {
+    font-size: 16px;
+    color: rgba(13,13,13,0.7);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .cert-badges {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cert-badge {
+    padding: 0.6rem 1.25rem;
+    border: 1px solid rgba(139,105,20,0.4);
+    background: rgba(201,168,76,0.08);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .compliance-steps {
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .compliance-step {
+    display: flex; gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid rgba(13,13,13,0.1);
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.3);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: right;
+  }
+
+  .step-content h4 {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-content p {
+    font-size: 13.5px;
+    color: rgba(13,13,13,0.6);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--ink-soft); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info { padding-top: 1rem; }
+
+  .contact-info p {
+    font-size: 16px;
+    color: rgba(247,244,238,0.6);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-detail-icon {
+    width: 36px; height: 36px;
+    border: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-detail-icon svg {
+    width: 16px; height: 16px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .contact-detail-text strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-detail-text span {
+    font-size: 14px;
+    color: rgba(247,244,238,0.7);
+  }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,244,238,0.4);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(247,244,238,0.04);
+    border: 0.5px solid var(--border);
+    color: var(--cream);
+    padding: 0.875rem 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(247,244,238,0.2);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-submit {
+    margin-top: 0.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 0.5px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,244,238,0.5);
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(247,244,238,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,244,238,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .stats-bar { padding: 1.5rem; }
+    .about-grid,
+    .compliance-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Delta-Nine Pharmaceuticals</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#compliance">Compliance</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Delta-Nine Pharmaceuticals is a South African company focused on EU-GMP compliant cannabis post-harvest processing. Our operations are designed to meet international pharmaceutical-grade standards for dried flower and extracts.</p>
-    </section>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">&#916;9</div>
+    <span class="nav-brand">Delta-Nine</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#compliance">Compliance</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Trimming and Sorting</li>
-            <li>Drying and Curing</li>
-            <li>Gamma Irradiation</li>
-            <li>Packaging for Export</li>
-        </ul>
-    </section>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Cape Winelands, South Africa</span>
+    </div>
+    <h1>Pharmaceutical-grade<br><em>cannabis processing</em><br>for global export</h1>
+    <p class="hero-sub">
+      A specialist post-harvest facility transforming GACP-compliant cannabis flower into EU-GMP certified medical products — from cultivation partner to international market.
+    </p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
 
-    <section id="compliance">
-        <h2>Compliance</h2>
-        <p>We partner with local and European GMP experts to ensure that all products meet SAHPRA and EU-GMP requirements.</p>
-    </section>
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-number">EU-GMP</span>
+    <span class="stat-label">Certified Facility</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">GACP</span>
+    <span class="stat-label">Compliant Intake</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">SAHPRA</span>
+    <span class="stat-label">Licensed Partners</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">100%</span>
+    <span class="stat-label">Batch Traceability</span>
+  </div>
+</div>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: info@deltaninepharma.com<br>
-        Location: Western Cape, South Africa</p>
-    </section>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-tag">Who We Are</span>
+    <h2 class="section-title">From <em>farm to</em> global<br>pharmaceutical market</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        <strong>Delta-Nine Pharmaceuticals</strong> is a specialist post-harvest cannabis processing company based in South Africa's Cape Winelands. We partner with SAHPRA-licensed cultivators, purchasing GACP-compliant cannabis flower and adding pharmaceutical value through our fully compliant facility.
+      </p>
+      <p>
+        Our mission is to ensure every processed batch meets the highest global standards for quality, safety, and consistency — enabling South African cultivators to access premium international markets with confidence.
+      </p>
+      <div class="about-features">
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span>Drying, trimming, curing, and precision sorting</span>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span>Pharmaceutical-grade weighing, packaging, and secure storage</span>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span>EU-GMP compliant local and international logistics</span>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span>Strict batch traceability and quality assurance throughout</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-img-frame">
+        <img src="https://www.deltaninepharma.co.za/banner2.jpg" alt="Delta-Nine cannabis processing facility" onerror="this.style.display='none'; this.parentElement.style.background='rgba(201,168,76,0.08)'; this.parentElement.style.border='0.5px solid rgba(201,168,76,0.25)'">
+        <div class="about-img-overlay"></div>
+        <div class="about-img-caption">Western Cape Facility</div>
+      </div>
+      <div class="corner-accent tl"></div>
+      <div class="corner-accent br"></div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.</p>
-    </footer>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">End-to-end <em>post-harvest</em><br>processing services</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <h3>Trimming &amp; Sorting</h3>
+      <p>Precision trimming and grading of cannabis flower to pharmaceutical specifications, ensuring uniformity and quality for every batch destined for global markets.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+      <h3>Drying &amp; Curing</h3>
+      <p>Controlled environment drying and curing processes designed to preserve terpene profiles and cannabinoid integrity while meeting strict moisture and microbiological standards.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      </div>
+      <h3>Packaging &amp; Labelling</h3>
+      <p>EU-GMP compliant packaging in tamper-evident, pharmaceutical-grade containers with full regulatory labelling for international distribution and export compliance.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v0a2 2 0 01-2 2M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/></svg>
+      </div>
+      <h3>Secure Storage</h3>
+      <p>Climate-controlled, secure vaulted storage with real-time monitoring and full chain-of-custody documentation from intake through to dispatch.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </div>
+      <h3>Quality Assurance</h3>
+      <p>Comprehensive in-process testing and batch release protocols aligned with EU-GMP Annex 1 standards, with full documentation packages for regulatory submissions.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3>Export Logistics</h3>
+      <p>End-to-end export coordination including temperature-controlled transport, permits, and regulatory documentation for international pharmaceutical markets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="compliance" id="compliance">
+  <div class="section-header">
+    <span class="section-tag" style="color: var(--gold-dark);">Standards &amp; Compliance</span>
+    <h2 class="section-title">Built on the highest<br><em>global standards</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="compliance-grid">
+    <div class="compliance-text">
+      <p>
+        Our facility and processes are designed from the ground up to meet the rigorous requirements of both South African and international pharmaceutical regulators — ensuring every product leaving our facility is export-ready.
+      </p>
+      <p>
+        We operate in full alignment with SAHPRA licensing requirements and EU-GMP guidelines, with robust quality management systems, batch traceability, and environmental monitoring at every stage.
+      </p>
+      <div class="cert-badges">
+        <span class="cert-badge">EU-GMP</span>
+        <span class="cert-badge">GACP</span>
+        <span class="cert-badge">SAHPRA</span>
+        <span class="cert-badge">GMP Annex 1</span>
+      </div>
+    </div>
+    <div class="compliance-steps">
+      <div class="compliance-step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h4>GACP Intake Verification</h4>
+          <p>All incoming flower is verified against GACP documentation from licensed cultivators before acceptance into our facility.</p>
+        </div>
+      </div>
+      <div class="compliance-step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h4>Controlled Processing Environment</h4>
+          <p>Classified cleanrooms and controlled zones maintain pharmaceutical-grade environmental conditions throughout processing.</p>
+        </div>
+      </div>
+      <div class="compliance-step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h4>Batch Traceability</h4>
+          <p>Full electronic batch records from intake to release, providing complete traceability for every unit produced.</p>
+        </div>
+      </div>
+      <div class="compliance-step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h4>Regulatory Release</h4>
+          <p>Qualified Person (QP) batch release and full documentation packages prepared for target market submissions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <span class="section-tag">Get in Touch</span>
+    <h2 class="section-title">Partner with us<br>for <em>global reach</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Whether you're a SAHPRA-licensed cultivator looking for a compliant processing partner, or an international buyer seeking reliable EU-GMP certified supply, we'd like to hear from you.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>info@deltaninepharma.co.za</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          <span>Cape Winelands, Western Cape, South Africa</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Organisation">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label for="subject">Enquiry Type</label>
+        <input type="text" id="subject" placeholder="e.g. Processing partnership, Export enquiry...">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Tell us about your requirements..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button class="btn-primary" type="button" style="cursor:pointer; width: 100%; text-align: center; border: none;">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Delta-Nine Pharmaceuticals</span>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#compliance">Compliance</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="footer-copy">&copy; 2025 Delta-Nine Pharmaceuticals. All rights reserved.</span>
+</footer>
+
 </body>
 </html>
