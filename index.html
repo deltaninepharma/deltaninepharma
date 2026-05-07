@@ -266,8 +266,143 @@ section { padding: 7rem 4rem; }
 .section-title em { font-style: italic; color: var(--gold-light); }
 .section-rule { width: 50px; height: 1px; background: var(--border-strong); margin-top: 1.25rem; }
 
-/* ABOUT */
-.about { background: var(--ink-soft); }
+/* ABOUT VISUAL PANEL */
+.about-img-frame { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.about-visual-panel {
+  position: relative; aspect-ratio: 4/5;
+  overflow: hidden; border: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.avp-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #222 50%, #1a1a1a 100%);
+}
+.avp-logo-watermark {
+  position: absolute; bottom: 2rem; right: 2rem; z-index: 1;
+}
+.avp-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0; width: 100%; padding: 2rem;
+}
+.avp-metric {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.5rem 2rem; width: 100%; text-align: center;
+}
+.avp-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 500;
+  color: #B8922E; line-height: 1; margin-bottom: 0.4rem;
+}
+.avp-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(240,237,230,0.45);
+}
+.avp-divider {
+  width: 40px; height: 1px;
+  background: rgba(184,146,46,0.2);
+}
+
+/* PROCESS VISUAL PANELS */
+.process-visual-main, .process-visual-secondary {
+  border: 0.5px solid var(--border); border-radius: 2px; overflow: hidden;
+}
+.process-visual-main { margin-bottom: 1rem; }
+.pv-inner {
+  padding: 1.75rem;
+  position: relative;
+}
+.pv-lab {
+  background: linear-gradient(135deg, #1a1a1a 0%, #1e1e1e 100%);
+  min-height: 260px;
+}
+.pv-qa {
+  background: linear-gradient(135deg, #1a1a1a 0%, #1c1c1c 100%);
+}
+.pv-icon {
+  width: 48px; height: 48px; margin-bottom: 1.25rem;
+}
+.pv-icon svg { width: 48px; height: 48px; }
+.pv-tag {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.25em;
+  text-transform: uppercase; color: #B8922E;
+  margin-bottom: 1.25rem;
+  border-left: 2px solid #B8922E; padding-left: 0.6rem;
+}
+.pv-stat-row {
+  display: flex; gap: 1.5rem; margin-bottom: 1.5rem;
+}
+.pv-stat { display: flex; flex-direction: column; gap: 2px; }
+.pv-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 500; color: #F0EDE6; line-height: 1;
+}
+.pv-unit {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.1em;
+  color: rgba(240,237,230,0.4);
+}
+.pv-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+.pv-bar-row {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.pv-bar-row span {
+  font-size: 11px; color: rgba(240,237,230,0.4);
+  width: 120px; flex-shrink: 0;
+}
+.pv-bar {
+  flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px;
+}
+.pv-fill {
+  height: 100%; background: linear-gradient(to right, #B8922E, #D4B06A);
+  border-radius: 2px;
+}
+.pv-checklist { display: flex; flex-direction: column; gap: 0.65rem; }
+.pv-check {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.pv-check-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #B8922E; flex-shrink: 0;
+}
+.pv-check span { font-size: 13px; color: rgba(240,237,230,0.6); }
+
+/* VISUAL BANNER PANELS */
+.visual-banner { background: var(--ink); overflow: hidden; }
+.visual-banner-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr 1fr;
+  height: 280px; gap: 2px;
+}
+.vb-panel {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.4s;
+}
+.vb-panel-1 .vb-panel-bg { background: linear-gradient(135deg, #161210 0%, #1e1a12 100%); position: absolute; inset: 0; }
+.vb-panel-2 .vb-panel-bg { background: linear-gradient(135deg, #101416 0%, #121a1e 100%); position: absolute; inset: 0; }
+.vb-panel-3 .vb-panel-bg { background: linear-gradient(135deg, #141216 0%, #1a1220 100%); position: absolute; inset: 0; }
+.vb-panel:hover .vb-panel-bg { filter: brightness(1.2); }
+.vb-panel-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 1rem;
+  padding: 2rem;
+}
+.vb-svg { width: 64px; height: 64px; opacity: 0.9; }
+.vb-panel-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: rgba(240,237,230,0.85);
+}
+.vb-panel-sub {
+  font-size: 12px; color: rgba(240,237,230,0.35); letter-spacing: 0.04em;
+}
+/* Remove old vb-img styles that no longer apply */
+.vb-img { display: none; }
+
 .about .section-title { color: var(--text-main); }
 .about .section-tag { color: var(--gold-dark); }
 .about .section-rule { background: var(--border-strong); }
@@ -665,7 +800,33 @@ footer {
     </div>
     <div class="about-visual reveal-right">
       <div class="about-img-frame">
-        <img src="https://source.unsplash.com/featured/900x700/?cannabis,plant,botanical" alt="Cannabis processing facility">
+        <div class="about-visual-panel">
+          <div class="avp-bg"></div>
+          <div class="avp-content">
+            <div class="avp-metric">
+              <span class="avp-num">EU-GMP</span>
+              <span class="avp-label">Certified Standard</span>
+            </div>
+            <div class="avp-divider"></div>
+            <div class="avp-metric">
+              <span class="avp-num">SAHPRA</span>
+              <span class="avp-label">Licensed Partners</span>
+            </div>
+            <div class="avp-divider"></div>
+            <div class="avp-metric">
+              <span class="avp-num">100%</span>
+              <span class="avp-label">Batch Traceability</span>
+            </div>
+            <div class="avp-divider"></div>
+            <div class="avp-metric">
+              <span class="avp-num">GACP</span>
+              <span class="avp-label">Compliant Intake</span>
+            </div>
+          </div>
+          <div class="avp-logo-watermark">
+            <svg viewBox="0 0 130 80" fill="none" width="120" opacity="0.06"><line x1="20" y1="74" x2="36" y2="6" stroke="#B8922E" stroke-width="7" stroke-linecap="round"/><polygon points="56,6 88,74 24,74" fill="none" stroke="#B8922E" stroke-width="5" stroke-linejoin="round"/><polygon points="94,6 126,74 62,74" fill="none" stroke="#B8922E" stroke-width="5" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
         <div class="about-img-overlay"></div>
         <div class="about-img-caption">Western Cape Facility</div>
       </div>
@@ -774,15 +935,52 @@ footer {
     </div>
     <div class="process-right reveal-right">
       <div class="process-img-stack">
-        <div class="process-img-main">
-          <img src="https://source.unsplash.com/featured/700x525/?pharmaceutical,laboratory,cleanroom" alt="Pharmaceutical processing facility" loading="lazy">
-          <div class="process-img-overlay"></div>
-          <div class="process-img-label">GMP Processing Facility</div>
+        <div class="process-visual-main">
+          <div class="pv-inner pv-lab">
+            <div class="pv-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="28" width="48" height="28" rx="2" stroke="#B8922E" stroke-width="1.5"/>
+                <path d="M22 28V16M42 28V16" stroke="#B8922E" stroke-width="1.5"/>
+                <path d="M16 16h32" stroke="#B8922E" stroke-width="1.5"/>
+                <circle cx="25" cy="42" r="4" stroke="rgba(184,146,46,0.5)" stroke-width="1"/>
+                <circle cx="39" cy="42" r="4" stroke="rgba(184,146,46,0.5)" stroke-width="1"/>
+                <path d="M25 38v8M21 42h8M35 42h8" stroke="rgba(184,146,46,0.4)" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="pv-content">
+              <div class="pv-tag">GMP Processing Facility</div>
+              <div class="pv-stat-row">
+                <div class="pv-stat"><span class="pv-num">ISO</span><span class="pv-unit">8 Cleanroom</span></div>
+                <div class="pv-stat"><span class="pv-num">24/7</span><span class="pv-unit">Monitoring</span></div>
+                <div class="pv-stat"><span class="pv-num">100%</span><span class="pv-unit">Traceability</span></div>
+              </div>
+              <div class="pv-bars">
+                <div class="pv-bar-row"><span>Temperature Control</span><div class="pv-bar"><div class="pv-fill" style="width:98%"></div></div></div>
+                <div class="pv-bar-row"><span>Humidity Control</span><div class="pv-bar"><div class="pv-fill" style="width:96%"></div></div></div>
+                <div class="pv-bar-row"><span>Batch Compliance</span><div class="pv-bar"><div class="pv-fill" style="width:100%"></div></div></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="process-img-secondary">
-          <img src="https://source.unsplash.com/featured/700x300/?laboratory,testing,science" alt="Quality testing laboratory" loading="lazy">
-          <div class="process-img-overlay"></div>
-          <div class="process-img-label">Quality Assurance Lab</div>
+        <div class="process-visual-secondary">
+          <div class="pv-inner pv-qa">
+            <div class="pv-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="28" cy="28" r="16" stroke="#B8922E" stroke-width="1.5"/>
+                <path d="M40 40l12 12" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M23 28l4 4 8-8" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="pv-content">
+              <div class="pv-tag">Quality Assurance Lab</div>
+              <div class="pv-checklist">
+                <div class="pv-check"><div class="pv-check-dot"></div><span>GACP documentation verified</span></div>
+                <div class="pv-check"><div class="pv-check-dot"></div><span>Microbial testing complete</span></div>
+                <div class="pv-check"><div class="pv-check-dot"></div><span>Cannabinoid profile confirmed</span></div>
+                <div class="pv-check"><div class="pv-check-dot"></div><span>QP batch release signed</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -812,17 +1010,29 @@ footer {
 
 <div class="visual-banner reveal">
   <div class="visual-banner-grid">
-    <div class="vb-img vb-img-1">
-      <img src="https://source.unsplash.com/featured/600x340/?cannabis,hemp,plant" alt="Cannabis flower" loading="lazy">
-      <div class="vb-label">GACP-Compliant Intake</div>
+    <div class="vb-panel vb-panel-1">
+      <div class="vb-panel-bg"></div>
+      <div class="vb-panel-content">
+        <svg class="vb-svg" viewBox="0 0 80 80" fill="none"><path d="M40 10C23.4 10 10 23.4 10 40s13.4 30 30 30 30-13.4 30-30S56.6 10 40 10z" stroke="rgba(184,146,46,0.3)" stroke-width="1"/><path d="M40 20C28.9 20 20 28.9 20 40s8.9 20 20 20 20-8.9 20-20-8.9-20-20-20z" stroke="rgba(184,146,46,0.5)" stroke-width="1"/><circle cx="40" cy="40" r="8" stroke="#B8922E" stroke-width="1.5"/><path d="M40 20v6M40 54v6M20 40h6M54 40h6" stroke="rgba(184,146,46,0.4)" stroke-width="1"/></svg>
+        <div class="vb-panel-label">GACP-Compliant Intake</div>
+        <div class="vb-panel-sub">Farm-to-facility verification</div>
+      </div>
     </div>
-    <div class="vb-img vb-img-2">
-      <img src="https://source.unsplash.com/featured/800x340/?pharmaceutical,medicine,lab" alt="Pharmaceutical laboratory" loading="lazy">
-      <div class="vb-label">EU-GMP Processing</div>
+    <div class="vb-panel vb-panel-2">
+      <div class="vb-panel-bg"></div>
+      <div class="vb-panel-content">
+        <svg class="vb-svg" viewBox="0 0 80 80" fill="none"><rect x="15" y="15" width="50" height="50" rx="2" stroke="rgba(184,146,46,0.3)" stroke-width="1"/><rect x="22" y="22" width="36" height="36" rx="1" stroke="rgba(184,146,46,0.5)" stroke-width="1"/><path d="M30 40h20M30 33h20M30 47h14" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="vb-panel-label">EU-GMP Processing</div>
+        <div class="vb-panel-sub">Pharmaceutical-grade facility</div>
+      </div>
     </div>
-    <div class="vb-img vb-img-3">
-      <img src="https://source.unsplash.com/featured/600x340/?packaging,medicine,bottle" alt="Pharmaceutical packaging" loading="lazy">
-      <div class="vb-label">Global Export Ready</div>
+    <div class="vb-panel vb-panel-3">
+      <div class="vb-panel-bg"></div>
+      <div class="vb-panel-content">
+        <svg class="vb-svg" viewBox="0 0 80 80" fill="none"><path d="M20 60l10-20 10 10 10-20 10 20" stroke="rgba(184,146,46,0.5)" stroke-width="1" stroke-linecap="round"/><path d="M15 25h50" stroke="rgba(184,146,46,0.2)" stroke-width="1"/><circle cx="30" cy="40" r="3" fill="#B8922E" opacity="0.6"/><circle cx="40" cy="30" r="3" fill="#B8922E" opacity="0.6"/><circle cx="50" cy="50" r="3" fill="#B8922E" opacity="0.6"/><path d="M20 20v45M20 65h45" stroke="rgba(184,146,46,0.4)" stroke-width="1"/></svg>
+        <div class="vb-panel-label">Global Export Ready</div>
+        <div class="vb-panel-sub">International market certified</div>
+      </div>
     </div>
   </div>
 </div>
