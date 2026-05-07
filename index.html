@@ -266,45 +266,95 @@ section { padding: 7rem 4rem; }
 .section-title em { font-style: italic; color: var(--gold-light); }
 .section-rule { width: 50px; height: 1px; background: var(--border-strong); margin-top: 1.25rem; }
 
-/* ABOUT VISUAL PANEL */
-.about-img-frame { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-.about-visual-panel {
-  position: relative; aspect-ratio: 4/5;
-  overflow: hidden; border: 0.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
+/* ABOUT CREDENTIAL CARD */
+.about-visual { position: relative; }
+.about-card {
+  border: 0.5px solid var(--border);
+  background: white;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
-.avp-bg {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, #1a1a1a 0%, #222 50%, #1a1a1a 100%);
+.ac-location {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--ink);
+  border-bottom: 0.5px solid rgba(184,146,46,0.15);
 }
-.avp-logo-watermark {
-  position: absolute; bottom: 2rem; right: 2rem; z-index: 1;
-}
-.avp-content {
-  position: relative; z-index: 2;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0; width: 100%; padding: 2rem;
-}
-.avp-metric {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 1.5rem 2rem; width: 100%; text-align: center;
-}
-.avp-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px; font-weight: 500;
-  color: #B8922E; line-height: 1; margin-bottom: 0.4rem;
-}
-.avp-label {
+.ac-location span {
   font-family: 'Raleway', sans-serif;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(240,237,230,0.55);
+}
+.ac-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.ac-cell {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  padding: 1.5rem;
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  transition: background 0.2s;
+}
+.ac-cell:nth-child(even) { border-right: none; }
+.ac-cell:nth-child(3),
+.ac-cell:nth-child(4) { border-bottom: none; }
+.ac-cell:hover { background: rgba(184,146,46,0.03); }
+.ac-cell-icon {
+  flex-shrink: 0; margin-top: 2px;
+  opacity: 0.9;
+}
+.ac-cell-text {
+  display: flex; flex-direction: column; gap: 3px;
+}
+.ac-cell-text strong {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--text-main);
+}
+.ac-cell-text span {
+  font-size: 12px; font-weight: 400;
+  color: var(--text-muted); line-height: 1.4;
+}
+.ac-flow {
+  display: flex; align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--ink-soft);
+  border-top: 0.5px solid var(--border);
+  gap: 0;
+}
+.ac-flow-step {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.4rem;
+  flex-shrink: 0;
+}
+.ac-flow-step span {
   font-size: 9px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(240,237,230,0.45);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
-.avp-divider {
-  width: 40px; height: 1px;
-  background: rgba(184,146,46,0.2);
+.ac-flow-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  background: white;
 }
+.ac-flow-dot--active {
+  background: #B8922E;
+  border-color: #B8922E;
+  box-shadow: 0 0 0 3px rgba(184,146,46,0.15);
+}
+.ac-flow-line {
+  flex: 1; height: 1px;
+  background: var(--border); margin-bottom: 18px;
+}
+
+/* Remove old avp styles */
+.about-img-frame { display: none; }
+.about-visual-panel, .avp-bg, .avp-content, .avp-metric,
+.avp-num, .avp-label, .avp-divider, .avp-logo-watermark { display: none; }
+
 
 /* PROCESS VISUAL PANELS */
 .process-visual-main, .process-visual-secondary {
@@ -799,39 +849,78 @@ footer {
       </div>
     </div>
     <div class="about-visual reveal-right">
-      <div class="about-img-frame">
-        <div class="about-visual-panel">
-          <div class="avp-bg"></div>
-          <div class="avp-content">
-            <div class="avp-metric">
-              <span class="avp-num">EU-GMP</span>
-              <span class="avp-label">Certified Standard</span>
+      <div class="about-card">
+
+        <!-- Top: location banner -->
+        <div class="ac-location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8922E" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Cape Winelands, Western Cape, South Africa</span>
+        </div>
+
+        <!-- 2x2 credential grid -->
+        <div class="ac-grid">
+          <div class="ac-cell">
+            <div class="ac-cell-icon">
+              <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><rect x="4" y="4" width="24" height="24" rx="1" stroke="#B8922E" stroke-width="1.2"/><path d="M10 16l4 4 8-8" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="avp-divider"></div>
-            <div class="avp-metric">
-              <span class="avp-num">SAHPRA</span>
-              <span class="avp-label">Licensed Partners</span>
-            </div>
-            <div class="avp-divider"></div>
-            <div class="avp-metric">
-              <span class="avp-num">100%</span>
-              <span class="avp-label">Batch Traceability</span>
-            </div>
-            <div class="avp-divider"></div>
-            <div class="avp-metric">
-              <span class="avp-num">GACP</span>
-              <span class="avp-label">Compliant Intake</span>
+            <div class="ac-cell-text">
+              <strong>EU-GMP</strong>
+              <span>Certified Processing Standard</span>
             </div>
           </div>
-          <div class="avp-logo-watermark">
-            <svg viewBox="0 0 130 80" fill="none" width="120" opacity="0.06"><line x1="20" y1="74" x2="36" y2="6" stroke="#B8922E" stroke-width="7" stroke-linecap="round"/><polygon points="56,6 88,74 24,74" fill="none" stroke="#B8922E" stroke-width="5" stroke-linejoin="round"/><polygon points="94,6 126,74 62,74" fill="none" stroke="#B8922E" stroke-width="5" stroke-linejoin="round"/></svg>
+          <div class="ac-cell">
+            <div class="ac-cell-icon">
+              <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><path d="M16 4l10 5v8c0 5-4 9-10 11C10 26 6 22 6 17V9l10-5z" stroke="#B8922E" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 16l3 3 5-5" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="ac-cell-text">
+              <strong>SAHPRA</strong>
+              <span>Licensed Cultivator Partners</span>
+            </div>
+          </div>
+          <div class="ac-cell">
+            <div class="ac-cell-icon">
+              <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><circle cx="16" cy="16" r="12" stroke="#B8922E" stroke-width="1.2"/><path d="M16 10v6l4 2" stroke="#B8922E" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="ac-cell-text">
+              <strong>GACP</strong>
+              <span>Compliant Intake Verification</span>
+            </div>
+          </div>
+          <div class="ac-cell">
+            <div class="ac-cell-icon">
+              <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><path d="M6 26V12l10-8 10 8v14" stroke="#B8922E" stroke-width="1.2" stroke-linejoin="round"/><rect x="12" y="18" width="8" height="8" rx="1" stroke="#B8922E" stroke-width="1.2"/></svg>
+            </div>
+            <div class="ac-cell-text">
+              <strong>100% Traceable</strong>
+              <span>Full Batch Record System</span>
+            </div>
           </div>
         </div>
-        <div class="about-img-overlay"></div>
-        <div class="about-img-caption">Western Cape Facility</div>
+
+        <!-- Bottom: process flow -->
+        <div class="ac-flow">
+          <div class="ac-flow-step">
+            <div class="ac-flow-dot"></div>
+            <span>Cultivator</span>
+          </div>
+          <div class="ac-flow-line"></div>
+          <div class="ac-flow-step">
+            <div class="ac-flow-dot ac-flow-dot--active"></div>
+            <span>Processing</span>
+          </div>
+          <div class="ac-flow-line"></div>
+          <div class="ac-flow-step">
+            <div class="ac-flow-dot"></div>
+            <span>QA Release</span>
+          </div>
+          <div class="ac-flow-line"></div>
+          <div class="ac-flow-step">
+            <div class="ac-flow-dot"></div>
+            <span>Global Export</span>
+          </div>
+        </div>
+
       </div>
-      <div class="corner-accent tl"></div>
-      <div class="corner-accent br"></div>
     </div>
   </div>
 </section>
