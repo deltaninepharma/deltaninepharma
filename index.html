@@ -636,6 +636,122 @@ section { padding: 7rem 4rem; }
   border-left: 2px solid var(--gold); padding-left: 0.6rem;
 }
 
+/* ROADMAP */
+.roadmap { background: var(--ink); }
+.roadmap .section-title { color: var(--cream); }
+.roadmap .section-tag { color: var(--gold); }
+.roadmap .section-rule { background: var(--border-strong); }
+
+.roadmap-track {
+  position: relative;
+  max-width: 860px;
+}
+.rm-spine {
+  position: absolute;
+  left: 19px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(184,146,46,0.3) 5%, rgba(184,146,46,0.3) 95%, transparent);
+}
+.rm-item {
+  display: flex; gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 0.5px solid rgba(184,146,46,0.1);
+  position: relative;
+}
+.rm-item:last-child { border-bottom: none; }
+
+.rm-node {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+  transition: transform 0.3s;
+}
+.rm-item:hover .rm-node { transform: scale(1.1); }
+.rm-node svg { width: 16px; height: 16px; }
+
+.rm-node--done {
+  background: rgba(184,146,46,0.15);
+  border: 1px solid rgba(184,146,46,0.4);
+  color: #B8922E;
+}
+.rm-node--active {
+  background: rgba(184,146,46,0.2);
+  border: 2px solid #B8922E;
+  color: #B8922E;
+  box-shadow: 0 0 0 4px rgba(184,146,46,0.1);
+  animation: activePulse 2.5s ease-in-out infinite;
+}
+@keyframes activePulse {
+  0%,100% { box-shadow: 0 0 0 4px rgba(184,146,46,0.1); }
+  50% { box-shadow: 0 0 0 8px rgba(184,146,46,0.05); }
+}
+.rm-node--upcoming {
+  background: rgba(240,237,230,0.04);
+  border: 1px solid rgba(240,237,230,0.12);
+}
+.rm-node--milestone {
+  background: rgba(184,146,46,0.25);
+  border: 2px solid #B8922E;
+  color: #D4B06A;
+  width: 44px; height: 44px;
+  box-shadow: 0 0 20px rgba(184,146,46,0.2);
+}
+.rm-node--milestone svg { width: 18px; height: 18px; }
+
+.rm-content { padding-top: 0.4rem; flex: 1; }
+.rm-content--milestone {
+  padding: 1.25rem 1.5rem;
+  background: rgba(184,146,46,0.05);
+  border: 0.5px solid rgba(184,146,46,0.2);
+  margin-top: -0.4rem;
+}
+
+.rm-date {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #B8922E; margin-bottom: 0.4rem;
+}
+.rm-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--cream); margin-bottom: 0.5rem; line-height: 1.2;
+}
+.rm-content--milestone h3 { font-size: 22px; }
+.rm-content p {
+  font-size: 13.5px; color: rgba(240,237,230,0.5);
+  line-height: 1.75; margin-bottom: 0.75rem; max-width: 580px;
+}
+
+.rm-badge {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+}
+.rm-badge--done {
+  background: rgba(184,146,46,0.1);
+  color: rgba(184,146,46,0.6);
+  border: 0.5px solid rgba(184,146,46,0.2);
+}
+.rm-badge--active {
+  background: rgba(184,146,46,0.15);
+  color: #B8922E;
+  border: 0.5px solid rgba(184,146,46,0.4);
+}
+.rm-badge--milestone {
+  background: #B8922E;
+  color: var(--ink);
+}
+.rm-badge--upcoming {
+  background: rgba(240,237,230,0.05);
+  color: rgba(240,237,230,0.3);
+  border: 0.5px solid rgba(240,237,230,0.1);
+}
+
 /* VISUAL BANNER */
 .visual-banner {
   background: var(--ink);
@@ -857,6 +973,7 @@ footer {
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#compliance">Compliance</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1183,6 +1300,106 @@ footer {
     <div class="cert-item"><div class="cert-item-dot"></div><span>Cape Winelands, South Africa</span></div>
   </div>
 </div>
+
+<section class="roadmap" id="roadmap">
+  <div class="section-header reveal">
+    <span class="section-tag">Our Milestones</span>
+    <h2 class="section-title">The road to<br><em>full certification</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="roadmap-track">
+    <!-- Timeline spine -->
+    <div class="rm-spine"></div>
+
+    <!-- COMPLETED: Company Founded -->
+    <div class="rm-item rm-done reveal delay-1">
+      <div class="rm-node rm-node--done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="rm-content">
+        <div class="rm-date">2024</div>
+        <h3>Company Established</h3>
+        <p>Delta-Nine Pharmaceuticals incorporated in South Africa. Facility site selection and initial planning commenced in the Cape Winelands.</p>
+        <span class="rm-badge rm-badge--done">Completed</span>
+      </div>
+    </div>
+
+    <!-- COMPLETED: Facility Setup -->
+    <div class="rm-item rm-done reveal delay-2">
+      <div class="rm-node rm-node--done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="rm-content">
+        <div class="rm-date">Early 2025</div>
+        <h3>Facility Build-Out</h3>
+        <p>Processing facility constructed to pharmaceutical-grade specifications. Quality Management System development and SOP drafting initiated.</p>
+        <span class="rm-badge rm-badge--done">Completed</span>
+      </div>
+    </div>
+
+    <!-- COMPLETED: SAHPRA Application -->
+    <div class="rm-item rm-done reveal delay-3">
+      <div class="rm-node rm-node--done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="rm-content">
+        <div class="rm-date">2025</div>
+        <h3>SAHPRA Licence Application Submitted</h3>
+        <p>Full application package submitted to SAHPRA for a cannabis-related licence. Documentation, facility inspection readiness and compliance review completed.</p>
+        <span class="rm-badge rm-badge--done">Completed</span>
+      </div>
+    </div>
+
+    <!-- UPCOMING: SAHPRA Licence -->
+    <div class="rm-item rm-active reveal delay-1">
+      <div class="rm-node rm-node--active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+      <div class="rm-content">
+        <div class="rm-date">June 2026</div>
+        <h3>SAHPRA Licence Award</h3>
+        <p>Anticipated award of SAHPRA cannabis-related licence, enabling legal post-harvest processing and commercial operations at our Western Cape facility.</p>
+        <span class="rm-badge rm-badge--active">In Progress</span>
+      </div>
+    </div>
+
+    <!-- UPCOMING: First Batches -->
+    <div class="rm-item rm-upcoming reveal delay-2">
+      <div class="rm-node rm-node--upcoming"></div>
+      <div class="rm-content">
+        <div class="rm-date">Q3 2026</div>
+        <h3>First Commercial Batches</h3>
+        <p>Commencement of commercial post-harvest processing for SAHPRA-licensed cultivator partners. Initial batch records, QA protocols and supply agreements activated.</p>
+        <span class="rm-badge rm-badge--upcoming">Upcoming</span>
+      </div>
+    </div>
+
+    <!-- KEY MILESTONE: EU-GMP Audit -->
+    <div class="rm-item rm-milestone reveal delay-3">
+      <div class="rm-node rm-node--milestone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      </div>
+      <div class="rm-content rm-content--milestone">
+        <div class="rm-date">November 2026</div>
+        <h3>EU-GMP Audit — Confirmed</h3>
+        <p>Confirmed EU-GMP inspection by a European Medicines Agency recognised auditing body. Successful certification will unlock direct supply to EU pharmaceutical markets.</p>
+        <span class="rm-badge rm-badge--milestone">Key Milestone</span>
+      </div>
+    </div>
+
+    <!-- FUTURE: EU Export -->
+    <div class="rm-item rm-upcoming reveal delay-1">
+      <div class="rm-node rm-node--upcoming"></div>
+      <div class="rm-content">
+        <div class="rm-date">2027</div>
+        <h3>EU-GMP Certification & Export Launch</h3>
+        <p>Full EU-GMP certification received. Commencement of exports to European and international pharmaceutical markets. Qualified Person batch release operations go live.</p>
+        <span class="rm-badge rm-badge--upcoming">Upcoming</span>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <div class="visual-banner reveal">
   <div class="visual-banner-grid">
