@@ -1567,7 +1567,12 @@ footer {
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  const homePage = document.getElementById('page-home');
+  if (homePage && homePage.classList.contains('active')) {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  } else {
+    navbar.classList.add('scrolled');
+  }
 });
 
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
@@ -1645,6 +1650,14 @@ form.addEventListener('submit', async function(e) {
 
     // Scroll to top
     window.scrollTo(0, 0);
+
+    // Nav: always dark on non-home pages, transparent only on home at top
+    const navbar = document.getElementById('navbar');
+    if (pageId === 'page-home') {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    } else {
+      navbar.classList.add('scrolled');
+    }
 
     // Update nav active state
     navLinks.forEach(a => {
