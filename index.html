@@ -25,7 +25,10 @@
 <meta name="twitter:description" content="Delta-Nine Pharmaceuticals: medicinal cannabis post-harvest processing in Somerset West, built to EU-GMP principles. SAHPRA licence application in progress.">
 <meta name="twitter:image" content="https://www.deltaninepharma.co.za/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body id="top">
@@ -33,9 +36,11 @@
 
 <header class="site-header">
   <div class="container nav-inner">
-    <a class="brand" href="#top" aria-label="Delta-Nine Pharmaceuticals home">
-      <img src="/assets/logo-mark-dark.png" alt="Delta-Nine Pharmaceuticals logo" width="54" height="24">
-      <span class="brand-text"><span class="brand-name">DELTANINE</span><span class="brand-sub">PHARMACEUTICALS</span></span>
+    <a class="brand" href="#top">
+      <picture>
+        <source type="image/webp" srcset="/assets/logo-full.webp 1x, /assets/logo-full@2x.webp 2x, /assets/logo-full@3x.webp 3x">
+        <img src="/assets/logo-full.png" srcset="/assets/logo-full.png 1x, /assets/logo-full@2x.png 2x, /assets/logo-full@3x.png 3x" alt="Delta-Nine Pharmaceuticals" width="359" height="48">
+      </picture>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -68,7 +73,7 @@
     </div>
     <figure class="photo photo-hero">
         <picture>
-          <source srcset="/assets/photos/processing-room-overview.webp" type="image/webp">
+          <source srcset="/assets/photos/processing-room-overview-640.webp 640w, /assets/photos/processing-room-overview-960.webp 960w, /assets/photos/processing-room-overview-1400.webp 1400w, /assets/photos/processing-room-overview.webp 2000w" sizes="(max-width: 960px) calc(100vw - 40px), 540px" type="image/webp">
           <img src="/assets/photos/processing-room-overview.jpg" width="2000" height="1500" alt="Processing room with stainless-steel workbenches, chairs and processing equipment" fetchpriority="high">
         </picture>
       </figure>
@@ -91,7 +96,7 @@
       <h2>From farm to global pharmaceutical market</h2>
       <figure class="photo photo-about">
         <picture>
-          <source srcset="/assets/photos/team-at-facility.webp" type="image/webp">
+          <source srcset="/assets/photos/team-at-facility-640.webp 640w, /assets/photos/team-at-facility-960.webp 960w, /assets/photos/team-at-facility-1400.webp 1400w, /assets/photos/team-at-facility.webp 2000w" sizes="(max-width: 960px) calc(100vw - 40px), 520px" type="image/webp">
           <img src="/assets/photos/team-at-facility.jpg" width="2000" height="1676" alt="The Delta-Nine team at the facility" loading="lazy" decoding="async">
         </picture>
       </figure>
@@ -127,13 +132,13 @@
     <div class="photo-pair">
       <figure class="photo-stock">
         <div class="photo"><picture>
-          <source srcset="/assets/photos/stock-lab-glassware.webp" type="image/webp">
+          <source srcset="/assets/photos/stock-lab-glassware-640.webp 640w, /assets/photos/stock-lab-glassware-960.webp 960w, /assets/photos/stock-lab-glassware.webp 2000w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 960px) calc(50vw - 44px), 556px" type="image/webp">
           <img src="/assets/photos/stock-lab-glassware.jpg" width="2000" height="1333" alt="Laboratory glassware and a pipette on a white bench" loading="lazy" decoding="async">
         </picture></div>
       </figure>
       <figure class="photo-stock">
         <div class="photo"><picture>
-          <source srcset="/assets/photos/stock-freight-truck.webp" type="image/webp">
+          <source srcset="/assets/photos/stock-freight-truck-640.webp 640w, /assets/photos/stock-freight-truck-960.webp 960w, /assets/photos/stock-freight-truck.webp 2000w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 960px) calc(50vw - 44px), 556px" type="image/webp">
           <img src="/assets/photos/stock-freight-truck.jpg" width="2000" height="1381" alt="White freight truck on a highway" loading="lazy" decoding="async">
         </picture></div>
       </figure>
@@ -157,7 +162,7 @@
     </ol>
     <figure class="photo photo-wide">
         <picture>
-          <source srcset="/assets/photos/processing-rooms-corridor-wide.webp" type="image/webp">
+          <source srcset="/assets/photos/processing-rooms-corridor-wide-720.webp 720w, /assets/photos/processing-rooms-corridor-wide.webp 1176w" sizes="(max-width: 760px) calc(100vw - 40px), 720px" type="image/webp">
           <img src="/assets/photos/processing-rooms-corridor-wide.jpg" width="1176" height="784" alt="Door to Curing Room 2" loading="lazy" decoding="async">
         </picture>
       </figure>
@@ -189,12 +194,13 @@
     <div>
       <p class="eyebrow">Standards &amp; Compliance</p>
       <h2>Built on the highest global standards</h2>
+      <p class="slogan">its not personal, its GMP</p>
       <p>Our facility and processes are designed from the ground up to meet the rigorous requirements of both South African and international pharmaceutical regulators — so that product can be prepared to meet export market requirements.</p>
       <p>Our operations are designed to meet SAHPRA licensing requirements and EU-GMP guidelines, with robust quality management systems, batch traceability, and environmental monitoring at every stage.</p>
       <ul class="chips"><li>Grade D processing rooms</li><li>Designed to EU-GMP principles</li><li>SAHPRA licence application in progress</li></ul>
       <figure class="photo photo-compliance">
         <picture>
-          <source srcset="/assets/photos/change-room-corridor.webp" type="image/webp">
+          <source srcset="/assets/photos/change-room-corridor-480.webp 480w, /assets/photos/change-room-corridor-800.webp 800w, /assets/photos/change-room-corridor.webp 1500w" sizes="(max-width: 640px) calc(100vw - 40px), 400px" type="image/webp">
           <img src="/assets/photos/change-room-corridor.jpg" width="1500" height="2000" alt="Corridor lined with change room doors" loading="lazy" decoding="async">
         </picture>
       </figure>
@@ -238,7 +244,15 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-brand"><span class="brand-name">DELTANINE</span><span class="brand-sub">PHARMACEUTICALS</span></div>
+    <div class="footer-id">
+      <a class="footer-brand" href="#top">
+        <picture>
+          <source type="image/webp" srcset="/assets/logo-full.webp 1x, /assets/logo-full@2x.webp 2x, /assets/logo-full@3x.webp 3x">
+          <img src="/assets/logo-full.png" srcset="/assets/logo-full.png 1x, /assets/logo-full@2x.png 2x, /assets/logo-full@3x.png 3x" alt="Delta-Nine Pharmaceuticals" width="359" height="48" loading="lazy" decoding="async">
+        </picture>
+      </a>
+      <p class="footer-slogan">its not personal, its GMP</p>
+    </div>
     <ul class="footer-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>

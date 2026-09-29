@@ -21,11 +21,10 @@ p+p{margin-top:1rem}
 /* NAV */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:54px;height:auto}
-.brand-text,.footer-brand{display:flex;flex-direction:column;line-height:1}
-.brand-name{font-weight:700;font-size:16px;letter-spacing:.16em;color:#3F3F3F}
-.brand-sub{font-weight:500;font-size:10.5px;letter-spacing:.28em;color:var(--muted);margin-top:4px}
+.brand,.footer-brand{display:flex;align-items:center;flex:none;text-decoration:none;line-height:0}
+.brand picture,.footer-brand picture{display:block}
+.brand img{height:44px;width:auto;max-width:none}
+.footer-brand img{height:36px;width:auto;max-width:none}
 .site-nav ul{display:flex;align-items:center;gap:28px;list-style:none}
 .site-nav a{font-size:15px;font-weight:500;color:var(--ink);text-decoration:none}
 .site-nav a:hover{color:var(--blue)}
@@ -75,7 +74,7 @@ p+p{margin-top:1rem}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;transition:.2s}
 .card:hover{border-color:#B7C3D0;box-shadow:0 8px 24px rgba(14,42,71,.06)}
-.card-num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:14px;margin-bottom:20px}
+.card-num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--teal-soft);color:#0B6E77;font-weight:700;font-size:14px;margin-bottom:20px}
 .card p{font-size:16px;color:var(--text)}
 
 /* STEPS */
@@ -161,6 +160,8 @@ p+p{margin-top:1rem}
   .placeholder-wide{aspect-ratio:4/3;margin-top:40px}
   .form-row{grid-template-columns:1fr}
   .contact-form{padding:24px}
+  .brand img{height:34px}
+  .footer-brand img{height:32px}
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 
@@ -216,3 +217,16 @@ mark.ph{background:#FFE8B3;color:#6B4700;padding:0 3px;border-radius:3px;font-we
   .photo-compliance img{object-position:50% 45%}
   .photo-pair{grid-template-columns:1fr;gap:20px}
 }
+
+/* 404 */
+.notfound{padding:120px 0 136px;background:linear-gradient(180deg,#fff 0%,var(--tint) 100%)}
+.notfound-inner{max-width:640px}
+.notfound h1{margin-bottom:1rem}
+.notfound .lead{margin-top:0}
+@media (max-width:640px){.notfound{padding:72px 0 88px}}
+
+/* slogan */
+.slogan{position:relative;margin:.25rem 0 1.75rem;padding-left:16px;font-size:1.05rem;font-style:italic;font-weight:500;letter-spacing:.005em;color:#3F3F3F}
+.slogan::before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:2px;border-radius:2px;background:#A58D52}
+.footer-id{display:flex;flex-direction:column;gap:10px}
+.footer-slogan{font-size:13.5px;font-style:italic;font-weight:500;color:var(--muted)}

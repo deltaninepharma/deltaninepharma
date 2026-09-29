@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | Delta-Nine Pharmaceuticals</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="The page you are looking for could not be found.">
+<meta name="theme-color" content="#0E2A47">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <picture>
+        <source type="image/webp" srcset="/assets/logo-full.webp 1x, /assets/logo-full@2x.webp 2x, /assets/logo-full@3x.webp 3x">
+        <img src="/assets/logo-full.png" srcset="/assets/logo-full.png 1x, /assets/logo-full@2x.png 2x, /assets/logo-full@3x.png 3x" alt="Delta-Nine Pharmaceuticals" width="359" height="48">
+      </picture>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#process">Process</a></li>
+        <li><a href="/#roadmap">Roadmap</a></li>
+        <li><a href="/#compliance">Compliance</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="notfound">
+  <div class="container notfound-inner">
+    <p class="eyebrow">Error 404</p>
+    <h1>Page not found</h1>
+    <p class="lead">The page you're looking for may have moved or no longer exists.</p>
+    <div class="btn-row">
+      <a href="/" class="btn btn-primary">Back to homepage</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" href="/">
+      <picture>
+        <source type="image/webp" srcset="/assets/logo-full.webp 1x, /assets/logo-full@2x.webp 2x, /assets/logo-full@3x.webp 3x">
+        <img src="/assets/logo-full.png" srcset="/assets/logo-full.png 1x, /assets/logo-full@2x.png 2x, /assets/logo-full@3x.png 3x" alt="Delta-Nine Pharmaceuticals" width="359" height="48" loading="lazy" decoding="async">
+      </picture>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/#roadmap">Roadmap</a></li>
+      <li><a href="/#compliance">Compliance</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="footer-legal"><p class="footer-copy">&copy; 2026 Delta-Nine Pharmaceuticals. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+const t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
+t.addEventListener('click',()=>{const o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu');});
+n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+</script>
+</body>
+</html>
