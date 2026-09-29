@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /portal.html
 
 Sitemap: https://www.deltaninepharma.co.za/sitemap.xml
